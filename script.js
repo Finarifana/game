@@ -21,10 +21,17 @@ function getRandomHole() {
 }
 
 function startGame() {
+    // Reset game state
     score = 0;
     timeLeft = 30;
     document.getElementById('score').textContent = score;
     document.getElementById('time').textContent = timeLeft;
+    document.getElementById('score-summary').classList.add('hidden');
+    
+    // Start music
+    const backgroundMusic = document.getElementById('background-music');
+    backgroundMusic.play();
+
     nextHole();
     gameTimer = setInterval(nextHole, levelDurations[level]);
     countDownTimer = setInterval(updateTime, 1000);
@@ -59,7 +66,16 @@ function updateTime() {
 
 function endGame() {
     clearInterval(gameTimer);
-    alert('Game over! Your score is ' + score);
+    const backgroundMusic = document.getElementById('background-music');
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+
+    // Display final score summary
+    document.getElementById('final-score').textContent = score;
+    document.getElementById('final-time').textContent = 30 - timeLeft;
+    document.getElementById('final-level').textContent = level.charAt(0).toUpperCase() + level.slice(1);
+    document.getElementById('score-summary').classList.remove('hidden');
+
     if (activeHole) {
         activeHole.classList.remove('active');
         activeHole.removeEventListener('click', whack);
