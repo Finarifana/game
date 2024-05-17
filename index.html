@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="game-container">
-        <h1>Whack-a-Mole EXO VER</h1>
+        <h1>Whack-a-Mole</h1>
         <div class="score-board">
             <h2>Score: <span id="score">0</span></h2>
             <h2>Time: <span id="time">30</span>s</h2>
@@ -33,7 +33,14 @@
             <div class="hole" id="hole9"><img src="chen.png.jpeg" alt="Mouse"></div>
         </div>
         <button id="startButton">Start Game</button>
+        <div id="score-summary" class="hidden">
+            <h2>Game Over!</h2>
+            <p>Total Score: <span id="final-score"></span></p>
+            <p>Time Played: <span id="final-time"></span>s</p>
+            <p>Level: <span id="final-level"></span></p>
+        </div>
     </div>
+    <audio id="background-music" src="background-music.mp3" loop></audio>
     <script src="script.js"></script>
 </body>
 </html>
