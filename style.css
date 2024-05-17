@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    background-color: #87ceeb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.score-board {
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.hole {
+    width: 100px;
+    height: 100px;
+    background-color: #3b5998;
+    border-radius: 50%;
+    position: relative;
+}
+
+.hole::before {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50px;
+    height: 50px;
+    background-color: #f0e68c;
+    border-radius: 50%;
+    display: none;
+}
+
+.hole.active::before {
+    display: block;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff4500;
+}
