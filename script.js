@@ -1,6 +1,8 @@
 let score = 0;
 let activeHole = null;
-let timer = null;
+let gameTimer = null;
+let countDownTimer = null;
+let timeLeft = 30;
 
 function getRandomHole() {
     const holes = document.querySelectorAll('.hole');
@@ -10,9 +12,12 @@ function getRandomHole() {
 
 function startGame() {
     score = 0;
+    timeLeft = 30;
     document.getElementById('score').textContent = score;
+    document.getElementById('time').textContent = timeLeft;
     nextHole();
-    timer = setInterval(nextHole, 1000);
+    gameTimer = setInterval(nextHole, 1000);
+    countDownTimer = setInterval(updateTime, 1000);
     setTimeout(endGame, 30000); // End game after 30 seconds
 }
 
@@ -34,8 +39,16 @@ function whack(event) {
     }
 }
 
+function updateTime() {
+    timeLeft--;
+    document.getElementById('time').textContent = timeLeft;
+    if (timeLeft <= 0) {
+        clearInterval(countDownTimer);
+    }
+}
+
 function endGame() {
-    clearInterval(timer);
+    clearInterval(gameTimer);
     alert('Game over! Your score is ' + score);
     if (activeHole) {
         activeHole.classList.remove('active');
