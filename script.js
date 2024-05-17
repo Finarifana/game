@@ -3,6 +3,16 @@ let activeHole = null;
 let gameTimer = null;
 let countDownTimer = null;
 let timeLeft = 30;
+let level = 'easy';
+const levelDurations = {
+    easy: 1000,
+    medium: 700,
+    hard: 400,
+};
+
+document.getElementById('level').addEventListener('change', (event) => {
+    level = event.target.value;
+});
 
 function getRandomHole() {
     const holes = document.querySelectorAll('.hole');
@@ -16,7 +26,7 @@ function startGame() {
     document.getElementById('score').textContent = score;
     document.getElementById('time').textContent = timeLeft;
     nextHole();
-    gameTimer = setInterval(nextHole, 1000);
+    gameTimer = setInterval(nextHole, levelDurations[level]);
     countDownTimer = setInterval(updateTime, 1000);
     setTimeout(endGame, 30000); // End game after 30 seconds
 }
