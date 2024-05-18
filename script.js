@@ -53,6 +53,14 @@ function whack(event) {
         document.getElementById('score').textContent = score;
         activeHole.classList.remove('active');
         activeHole.removeEventListener('click', whack);
+        
+        // Ganti kursor menjadi palu saat mengklik
+        document.body.style.cursor = 'url(hammer.png), pointer';
+        
+        // Kembalikan kursor ke default setelah beberapa milidetik
+        setTimeout(() => {
+            document.body.style.cursor = 'default';
+        }, 200);
     }
 }
 
