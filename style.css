@@ -45,7 +45,7 @@ h1 {
     height: 100px;
     background-color: #eee;
     position: relative;
-    cursor: pointer;
+    cursor: url('hammer.png'), pointer; /* Mengatur kursor default */
     overflow: hidden;
     border: 2px solid #000;
 }
