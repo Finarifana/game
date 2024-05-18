@@ -4,7 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    background: #000;
     margin: 0;
 }
 
@@ -13,11 +13,12 @@ body {
     background-color: #fff;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    width: 300px;
 }
 
 h1 {
-    color: #ff7e5f;
+    color: #000;
     margin-bottom: 20px;
 }
 
@@ -42,11 +43,11 @@ h1 {
 .hole {
     width: 100px;
     height: 100px;
-    background-color: #3b5998;
+    background-color: #eee;
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    border: 2px solid #fff;
+    border: 2px solid #000;
 }
 
 .hole img {
@@ -65,7 +66,7 @@ h1 {
 
 button {
     padding: 10px 20px;
-    background-color: #ff6347;
+    background-color: #000;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -74,7 +75,7 @@ button {
 }
 
 button:hover {
-    background-color: #ff4500;
+    background-color: #333;
 }
 
 .hidden {
